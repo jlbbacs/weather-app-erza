@@ -60,7 +60,7 @@ function App() {
 
   // Load default city on initial render
   useEffect(() => {
-    handleSearch('London');
+    handleSearch('Cagayan de Oro');
   }, []);
 
   const backgroundClass = weather ? getWeatherBackground(weather.icon) : 'bg-gradient-to-b from-blue-400 to-blue-100';

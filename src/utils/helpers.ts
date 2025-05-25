@@ -6,8 +6,11 @@ export const formatTemp = (temp: number, unit: 'celsius' | 'fahrenheit'): string
 };
 
 export const formatTime = (timestamp: number, timezone: number): string => {
-  const date = new Date((timestamp + timezone) * 1000);
-  return date.toLocaleTimeString('en-US', { 
+  const date = new Date(timestamp * 1000);
+  const utcTime = date.getTime() + (date.getTimezoneOffset() * 60000);
+  const cityTime = new Date(utcTime + (timezone * 1000));
+  
+  return cityTime.toLocaleTimeString('en-US', { 
     hour: '2-digit', 
     minute: '2-digit',
     hour12: true 
@@ -15,8 +18,11 @@ export const formatTime = (timestamp: number, timezone: number): string => {
 };
 
 export const formatDate = (timestamp: number, timezone: number): string => {
-  const date = new Date((timestamp + timezone) * 1000);
-  return date.toLocaleDateString('en-US', { 
+  const date = new Date(timestamp * 1000);
+  const utcTime = date.getTime() + (date.getTimezoneOffset() * 60000);
+  const cityTime = new Date(utcTime + (timezone * 1000));
+  
+  return cityTime.toLocaleDateString('en-US', { 
     weekday: 'long',
     month: 'long',
     day: 'numeric',
