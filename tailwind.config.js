@@ -1,6 +1,11 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  safelist: [
+    'animate-rainDrop',
+    'animate-snowfall',
+    'animate-lightning',
+    'animate-fogMove'
+  ],
   theme: {
     extend: {
       animation: {
